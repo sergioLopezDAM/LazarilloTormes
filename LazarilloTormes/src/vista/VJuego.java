@@ -31,7 +31,6 @@ public class VJuego extends JPanel {
 
     public void generar(String[] rutas) {
         //rutas=nº cartas
-<<<<<<< HEAD
         ImageIcon img=new ImageIcon("/img/carga2.jpg");
         JLabel f=new JLabel(img);
         f.setBackground(Color.red);
@@ -45,13 +44,11 @@ public class VJuego extends JPanel {
         this.add(carta[0]);
         carta[0].addMouseListener(controlador);
         */
-=======
         carta = new Carta[1];
         carta[0] = new Carta(rutas[0]);
         this.add(carta[0]);
         carta[0].addMouseListener(controlador);
 
->>>>>>> ee747d8eb2f94b53e342e86bd208a8ca0102b012
     }
 
 }

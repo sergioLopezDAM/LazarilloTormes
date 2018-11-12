@@ -75,7 +75,6 @@ public class Vista {
         }
         ventana.remove(splash);
         ventana.repaint();
-<<<<<<< HEAD
         splash=null;
         
         //vDialogoMod.cargar();
@@ -87,13 +86,12 @@ public class Vista {
         
         ventana.add(vJuego);
         ventana.repaint();
-=======
+
         splash = null;
 
         vDialogoMod.cargar();
 
         ventana.add(vDialogoMod);
->>>>>>> ee747d8eb2f94b53e342e86bd208a8ca0102b012
         ventana.setVisible(true);
     }
 }
