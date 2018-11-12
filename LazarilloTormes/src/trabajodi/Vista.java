@@ -39,10 +39,7 @@ public class Vista {
 
 
     public Vista(Logica logica) {
-        ventana = new JFrame("Memorion");
-        ventana.setMaximumSize(new Dimension(1924, 1047));
-        ventana.setSize(600, 600);
-
+        generarVista();
         cargarSpash("/img/logotrini.png", "/img/carga.jpg", 0);
         //creamos todas las vistas mandandole la logica
         vCarga = new VCarga(logica);
@@ -54,6 +51,13 @@ public class Vista {
         //no ponemos splash ya que no necesita logica
 
         // vDialogoMod=new VDialogoMod(logica);
+    }
+
+
+    public void generarVista() {
+        ventana = new JFrame("Memorion");
+        ventana.setMaximumSize(new Dimension(1924, 1047));
+        ventana.setSize(600, 600);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
     }
