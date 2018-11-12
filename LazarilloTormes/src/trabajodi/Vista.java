@@ -78,15 +78,11 @@ public class Vista {
         splash = null;
 
         //vDialogoMod.cargar();
-<<<<<<< HEAD
         
        
         String aux[]=new String[1];
         aux[0]="src/img/carga2.jpg";
-=======
-        String aux[] = new String[1];
-        aux[0] = "img/carga.jpg";
->>>>>>> b79f474d70e9d330ed2a39f35606075c6245a341
+
         vJuego.generar(aux);
 
         ventana.add(vJuego);
@@ -94,12 +90,10 @@ public class Vista {
 
        /* vDialogoMod.cargar();
 
-<<<<<<< HEAD
         ventana.add(vDialogoMod);*/
-=======
+
         //vDialogoMod.cargar();
         // ventana.add(vDialogoMod);
->>>>>>> b79f474d70e9d330ed2a39f35606075c6245a341
         ventana.setVisible(true);
     }
 }
