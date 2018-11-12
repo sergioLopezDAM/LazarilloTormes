@@ -10,9 +10,12 @@ package trabajodi;
 
  @author Guille
  */
-public class Logica {
+public class TrabajoLazarilloMain {
 
-    public Logica() {
+    /**
+     @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Vista vista = new Vista(new Logica());
     }
-
 }
