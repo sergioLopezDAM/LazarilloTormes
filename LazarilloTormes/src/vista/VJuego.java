@@ -8,6 +8,7 @@ package vista;
 
 import controladores.ContrJuego;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.ImageIcon;
@@ -38,6 +39,14 @@ public class VJuego extends JPanel {
             carta.add(carta.get(i));
         }
         Collections.shuffle(carta);
+        
+        JPanel cartas = new JPanel();
+        int cuadrado=(int) Math.sqrt(rutas.length);
+        cartas.setLayout(new GridLayout(cuadrado, cuadrado));
+        for (Carta cart :carta) {
+            this.add(cart);
+        }
+        
         
         //rutas=nº cartas
         ImageIcon img=new ImageIcon("src/img/carga2.jpg");
