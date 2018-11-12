@@ -80,9 +80,16 @@ public class Vista {
         //vDialogoMod.cargar();
         
        
-        String aux[]=new String[1];
-        aux[0]="src/img/carga2.jpg";
-
+        String aux[]=new String[6];
+        /*for(int i=0;i<aux.length;i++){
+            aux[i]="src/img/carta.jpg";
+        }*/
+        aux[0]="src/img/carta.jpg";
+        aux[1]="src/img/2.jpg";
+        aux[2]="src/img/carga2.jpg";
+        aux[3]="src/img/flecha.png";
+        aux[5]="src/img/flecha.png";
+        //aux[3]="src/img/flecha.png";
         vJuego.generar(aux);
 
         ventana.add(vJuego);

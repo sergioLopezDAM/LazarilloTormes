@@ -34,27 +34,32 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
+        carta=new ArrayList();
         for(int i=0;i<rutas.length;i++){
+            System.out.println(rutas[i]);
             carta.add(new Carta(rutas[i]));
-            carta.add(carta.get(i));
+            carta.add(new Carta(rutas[i]));
         }
-        Collections.shuffle(carta);
+        
+        //carta.get(i).
+        //Collections.shuffle(carta);
         
         JPanel cartas = new JPanel();
-        int cuadrado=(int) Math.sqrt(rutas.length);
+        int cuadrado=(int) Math.sqrt(carta.size()+1);
         cartas.setLayout(new GridLayout(cuadrado, cuadrado));
         for (Carta cart :carta) {
-            this.add(cart);
+            cartas.add(cart);
         }
+        this.add(cartas);
         
         
         //rutas=nº cartas
-        ImageIcon img=new ImageIcon("src/img/carga2.jpg");
+        /*ImageIcon img=new ImageIcon("/src/img/carga2.jpg");
         JLabel f=new JLabel();
         f.setIcon(img);
         //f.setBounds(0, 0, 500, 500);
         f.setBackground(Color.red);
-        this.add(f);
+        this.add(f);*/
         repaint();
       /*  System.out.println(rutas[0]);
         carta=new Carta[1];
