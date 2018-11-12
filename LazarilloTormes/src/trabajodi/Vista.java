@@ -84,7 +84,9 @@ public class Vista {
         String aux[]=new String[1];
         aux[0]="img/carga.jpg";
         vJuego.generar(aux);
+        
         ventana.add(vJuego);
+        ventana.repaint();
         ventana.setVisible(true);
         
     }
