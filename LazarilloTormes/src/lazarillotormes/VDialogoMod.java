@@ -8,8 +8,14 @@ package Vistas;
 import com.sun.javafx.geom.Matrix3f;
 import controladores.ContrDialogoMod;
 import java.awt.Button;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import static java.awt.Image.SCALE_SMOOTH;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +27,7 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import trabajodi.Logica;
 
 /**
@@ -29,21 +36,79 @@ import trabajodi.Logica;
  */
 public class VDialogoMod extends JPanel {
     private ContrDialogoMod controlador;
-    private JButton atras;
+    private JButton atras; 
+    ImageIcon flecha;
     public VDialogoMod(Logica logica) {
         controlador=new ContrDialogoMod(this, logica);
     }
     public void cargar(){
        generarBoton();
+       girar();
     }
     private void generarBoton(){
         atras=new JButton();
+        flecha =imagenEspejo("/img/flecha.png");
         
-        atras.setIcon(imagenEspejo("/img/flecha.png"));
+        atras.setIcon(flecha);
         atras.setContentAreaFilled(false);
         atras.setBorderPainted(false);
         this.add(atras);
+    }  BufferedImage imagee;
+    int grados=0;
+    @Override
+    public void paint(Graphics g) {
+        
+        AffineTransform affineTransform = new AffineTransform(); 
+        //rotate the image by 45 degrees 
+        affineTransform.rotate(Math.toRadians(grados), 100, 100); 
+        Graphics2D g2d=(Graphics2D) g;
+        g2d.drawImage(flecha.getImage(), affineTransform, null); 
+        
+        super.paint(g2d); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    Timer timer;
+    public void girar(){
+        timer=new Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                grados+=10;
+                System.out.println("e");
+                repaint();
+            }
+        });
+        timer.start();
+        timer.setRepeats(true);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     private ImageIcon imagenEspejo(String ruta){
         //BufferedImage for source image
