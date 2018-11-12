@@ -19,4 +19,10 @@ public class Carta extends JLabel {
     public Carta(String url) {
         this.setIcon(new ImageIcon(url));
     }
+    public void Aparecer(){
+        
+    }
+    //ocultar
+    //es igual
+    //
 }

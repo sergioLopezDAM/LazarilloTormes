@@ -81,17 +81,15 @@ public class Vista {
         
        
         String aux[]=new String[1];
-        aux[0]="img/carga.jpg";
+        aux[0]="src/img/carga2.jpg";
         vJuego.generar(aux);
         
         ventana.add(vJuego);
         ventana.repaint();
 
-        splash = null;
+       /* vDialogoMod.cargar();
 
-        vDialogoMod.cargar();
-
-        ventana.add(vDialogoMod);
+        ventana.add(vDialogoMod);*/
         ventana.setVisible(true);
     }
 }
