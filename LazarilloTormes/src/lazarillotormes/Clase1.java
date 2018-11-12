@@ -13,13 +13,7 @@ package lazarillotormes;
 public class Clase1 {
 
     public void nombre_metodo(int variable) {
-        System.out.print("lakjsfñlasjdfasd");
-fsadfasfasdfasd
-        
-        a
-        sfaspojehsñlafjskdljf
-                esa
-                sdjflasjp
-                        asdñlkfjasp
+        System.out.print("ñlkajsdfñklajskfjsadkfjsadñljfklsadjfñkajsdkfajslñfaksldjfsad");
+
     }
 }
