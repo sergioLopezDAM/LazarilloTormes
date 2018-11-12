@@ -75,23 +75,20 @@ public class Vista {
         }
         ventana.remove(splash);
         ventana.repaint();
-        splash=null;
-        
+        splash = null;
+
         //vDialogoMod.cargar();
-        
-       
-        String aux[]=new String[1];
-        aux[0]="img/carga.jpg";
+        String aux[] = new String[1];
+        aux[0] = "img/carga.jpg";
         vJuego.generar(aux);
-        
+
         ventana.add(vJuego);
         ventana.repaint();
 
         splash = null;
 
-        vDialogoMod.cargar();
-
-        ventana.add(vDialogoMod);
+        //vDialogoMod.cargar();
+        // ventana.add(vDialogoMod);
         ventana.setVisible(true);
     }
 }

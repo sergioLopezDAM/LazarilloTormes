@@ -31,24 +31,26 @@ public class VJuego extends JPanel {
 
     public void generar(String[] rutas) {
         //rutas=nº cartas
-        ImageIcon img=new ImageIcon("/img/carga2.jpg");
-        JLabel f=new JLabel(img);
+        ImageIcon img = new ImageIcon("/img/carga2.jpg");
+
+        JLabel f = new JLabel(img);
         f.setBackground(Color.red);
         f.setOpaque(true);
         //f.setIcon();
         this.add(f);
         repaint();
-      /*  System.out.println(rutas[0]);
-        carta=new Carta[1];
-        carta[0]=new Carta(rutas[0]);
-        this.add(carta[0]);
-        carta[0].addMouseListener(controlador);
-        */
+
+        /*
+         System.out.println(rutas[0]);
+         carta=new Carta[1];
+         carta[0]=new Carta(rutas[0]);
+         this.add(carta[0]);
+         carta[0].addMouseListener(controlador);
+         */
         carta = new Carta[1];
         carta[0] = new Carta(rutas[0]);
         this.add(carta[0]);
         carta[0].addMouseListener(controlador);
 
     }
-
 }
