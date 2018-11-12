@@ -5,7 +5,7 @@
  */
 package controladores;
 
-import Vistas.VMenu;
+import vistas.VMenu;
 import trabajodi.Logica;
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package vistas;
 
 import com.sun.javafx.geom.Matrix3f;
 import controladores.ContrDialogoMod;

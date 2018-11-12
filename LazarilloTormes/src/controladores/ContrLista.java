@@ -5,7 +5,7 @@
  */
 package controladores;
 
-import Vistas.VLista;
+import vistas.VLista;
 import trabajodi.Logica;
 
 /**
