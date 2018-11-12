@@ -5,6 +5,8 @@
  */
 package controladores;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import vista.VJuego;
 import trabajodi.Logica;
 
@@ -12,13 +14,34 @@ import trabajodi.Logica;
  *
  * @author Guille
  */
-public class ContrJuego {
+public class ContrJuego implements MouseListener{
     private VJuego vista;
     private Logica logica;
 
     public ContrJuego(VJuego vista, Logica logica) {
         this.vista = vista;
         this.logica = logica;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println(e);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
     
 }
