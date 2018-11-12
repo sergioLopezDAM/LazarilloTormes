@@ -63,7 +63,7 @@ public class VDialogoMod extends JPanel {
         affineTransform.rotate(Math.toRadians(grados), 100, 100); 
         Graphics2D g2d=(Graphics2D) g;
         g2d.drawImage(flecha.getImage(), affineTransform, null); 
-        flecha
+        
         super.paint(g2d); //To change body of generated methods, choose Tools | Templates.
     }
     
