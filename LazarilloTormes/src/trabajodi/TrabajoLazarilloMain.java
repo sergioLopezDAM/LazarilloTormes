@@ -3,20 +3,19 @@
  To change this template file, choose Tools | Templates
  and open the template in the editor.
  */
-package vista;
-
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+package trabajodi;
 
 
 /**
 
  @author Guille
  */
-public class Carta extends JLabel {
+public class TrabajoLazarilloMain {
 
-    public Carta(String url) {
-        this.setIcon(new ImageIcon(url));
+    /**
+     @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Vista vista = new Vista(new Logica());
     }
 }
