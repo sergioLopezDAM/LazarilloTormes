@@ -22,5 +22,4 @@ public class VCarga {
     public VCarga(Logica logica) {
         this.controlador = new ContrCarga(this, logica);
     }
-
 }
