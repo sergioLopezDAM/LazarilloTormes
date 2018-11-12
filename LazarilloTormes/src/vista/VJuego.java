@@ -6,6 +6,9 @@
 package vista;
 
 import controladores.ContrJuego;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trabajodi.Logica;
 
@@ -23,11 +26,17 @@ public class VJuego extends JPanel{
     
     public void generar(String[] rutas){
         //rutas=nº cartas
+        JLabel f=new JLabel();
+        f.setBackground(Color.red);
+        f.setVisible(true);
+        f.setIcon(new ImageIcon("img/carga2.jpg"));
+        this.add(f);
+      /*  System.out.println(rutas[0]);
         carta=new Carta[1];
         carta[0]=new Carta(rutas[0]);
         this.add(carta[0]);
         carta[0].addMouseListener(controlador);
-        
+        */
     }
     
 }
