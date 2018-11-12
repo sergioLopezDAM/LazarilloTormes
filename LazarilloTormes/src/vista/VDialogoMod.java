@@ -93,6 +93,7 @@ public class VDialogoMod extends JPanel {
         BufferedImage simg = null;
         //File object
         File f = null;
+
         //read source image file
         try {
             f = new File("src" + ruta);//necesita la carpera src para enontrar la ruta
@@ -100,9 +101,11 @@ public class VDialogoMod extends JPanel {
         } catch (IOException e) {
             System.out.println("Error: " + e);
         }
+
         //guardamos los tamaños de la imagen
         int width = simg.getWidth();
         int height = simg.getHeight();
+
         //Creamos el BufferedImage con las simensiones de la imagen
         BufferedImage mimg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
