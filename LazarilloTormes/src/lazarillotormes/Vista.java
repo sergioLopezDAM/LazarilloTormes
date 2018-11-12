@@ -5,13 +5,13 @@
  */
 package trabajodi;
 
-import Vistas.VCarga;
-import Vistas.VDialogoMod;
-import Vistas.VIngreso;
-import Vistas.VJuego;
-import Vistas.VLista;
-import Vistas.VMenu;
-import Vistas.VistaSplash;
+import vistas.VCarga;
+import vistas.VDialogoMod;
+import vistas.VIngreso;
+import vistas.VJuego;
+import vistas.VLista;
+import vistas.VMenu;
+import vistas.VistaSplash;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;

@@ -5,7 +5,7 @@
  */
 package controladores;
 
-import Vistas.VJuego;
+import vistas.VJuego;
 import trabajodi.Logica;
 
 /**

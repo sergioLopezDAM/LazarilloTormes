@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package vistas;
 
-import controladores.ContrMenu;
+import controladores.ContrCarga;
 import trabajodi.Logica;
 
 /**
  *
  * @author Guille
  */
-public class VMenu {
-    private ContrMenu controlador;
-    
-    public VMenu(Logica logica) {
-        controlador=new ContrMenu(logica, this);
+public class VCarga {
+    private ContrCarga controlador;
+
+    public VCarga(Logica logica) {
+        this.controlador = new ContrCarga(this, logica);
     }
     
 }

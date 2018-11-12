@@ -5,7 +5,7 @@
  */
 package controladores;
 
-import Vistas.VDialogoMod;
+import vistas.VDialogoMod;
 import trabajodi.Logica;
 
 /**
