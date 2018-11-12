@@ -81,7 +81,5 @@ public class Vista {
 
         ventana.add(vDialogoMod);
         ventana.setVisible(true);
-
     }
-
 }

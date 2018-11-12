@@ -6,25 +6,17 @@
 package vista;
 
 
-import com.sun.javafx.geom.Matrix3f;
 import controladores.ContrDialogoMod;
-import java.awt.Button;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import static java.awt.Image.SCALE_SMOOTH;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.transform.Rotate;
 import javax.imageio.ImageIO;
-import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
