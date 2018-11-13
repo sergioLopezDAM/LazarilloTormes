@@ -55,6 +55,7 @@ public class Carta extends JLabel {
         g.drawImage(aux.getImage() , 1, 1, null);
         super.paint(g);
     }
+    
     public void animarSalir(){
         altura=aux.getIconHeight();
         ancho=aux.getIconWidth();
@@ -94,9 +95,7 @@ public class Carta extends JLabel {
                  setIcon(null);
             }else{
                 setIcon(carta);
-                
             }
-            //System.out.println("6748574 "+(altura>0 && ancho>0) +""+( altura<ALTOMAX) +" "+ ancho<ALTOMAX);
             timer.stop();
         }
         this.updateUI();

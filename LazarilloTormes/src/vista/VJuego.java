@@ -7,13 +7,20 @@ package vista;
 
 
 import controladores.ContrJuego;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import trabajodi.Logica;
 
 
@@ -26,30 +33,40 @@ public class VJuego extends JPanel {
     private ContrJuego controlador;
     //private Carta[] carta;
     private ArrayList<Carta> carta;
-
+    private int contadorSeg,contMov;
+    private Timer tReloj;
+    private JLabel lMovimientos,lReloj;
+    private JButton bPausa,bGuardar,bContinuar;
 
     public VJuego(Logica logica) {
         controlador = new ContrJuego(this, logica);
+        this.setLayout(new G);
     }
 
 
     public void generar(String[] rutas) {
        // this.setLayout(new );
         //generamos las cartas
+        asignarLabels();
         generarCartas(rutas);
         
     }
-    //auxiliar, para probar
-    boolean a=true;
-    public void algo(){
-        if(a){
-            carta.get(3).animarSalir();
-            a=false;
-         }else{
-            carta.get(3).animarEntrar();  
-            a=true;
-        }
+    private void asignarLabels(){
+        JPanel labels=new JPanel();
+        labels.setOpaque(false);
+        contMov=0;
+        lMovimientos=new JLabel(""+contMov);
+        labels.add(lMovimientos);
+        
+        contadorSeg=0;
+        lReloj=new JLabel(""+contadorSeg);
+        labels.add(lReloj);
+        
+        
+        this.add(labels,BorderLayout.NORTH);
     }
+    
+   
     
     private void generarCartas(String[] rutas){    
         carta=new ArrayList();
@@ -82,7 +99,44 @@ public class VJuego extends JPanel {
             carta.get(i).addMouseListener(controlador);
         }
 
-        this.add(cartas);
+        this.add(cartas,BorderLayout.CENTER);
+    }
+    
+    
+    private void empezarReloj(){
+        tReloj=new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contadorSeg++;
+                lReloj.setText(contadorSeg+"");
+                repaint();
+            }
+        });
+        tReloj.setRepeats(true);
+        tReloj.start();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     //auxiliar, para probar
+    boolean a=true;
+    public void algo(){
+        if(a){
+            carta.get(3).animarSalir();
+            a=false;
+         }else{
+            carta.get(3).animarEntrar();  
+            a=true;
+        }
     }
 
 }
