@@ -34,48 +34,45 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
+        //generamos las cartas
+        generarCartas(rutas);
+        
+        
+        
+    }
+    private void generarCartas(String[] rutas){
+        
         carta=new ArrayList();
+        //asignamos la misma ruta a 2 carta
         for(int i=0;i<rutas.length;i++){
-            System.out.println(rutas[i]);
             carta.add(new Carta(rutas[i]));
             carta.add(new Carta(rutas[i]));
         }
         
-        JPanel cartas = new JPanel();
-        int cuadrado=(int) Math.sqrt(carta.size());
-        cartas.setLayout(new GridLayout(cuadrado, cuadrado));
-        for (int i = 0,j=0; i < carta.size();j++ ) {
-            System.out.println(i);
+        //para cada carta asignamos el mismo id
+        for (int i=0,j=0 ; i < carta.size();j++ ) {
             carta.get(i).setName(""+j);
             i++;
             carta.get(i).setName(""+(j));
             i++;
         }
-                Collections.shuffle(carta);
-
+        
+        //creamos el panel donde estarán las cartas
+        JPanel cartas = new JPanel();
+        int cuadrado=(int) Math.sqrt(carta.size());
+        //asignamos un layout a las cartas
+        cartas.setLayout(new GridLayout(cuadrado, cuadrado));
+        
+        //deshordenamos las cartas
+        Collections.shuffle(carta);
+        
+        //añadimos todas las cartas y les ponemos escuchador
         for (int i = 0; i < carta.size(); i++) {
             cartas.add(carta.get(i));
             carta.get(i).addMouseListener(controlador);
         }
 
         this.add(cartas);
-        
-        
-        //rutas=nº cartas
-        /*ImageIcon img=new ImageIcon("/src/img/carga2.jpg");
-        JLabel f=new JLabel();
-        f.setIcon(img);
-        //f.setBounds(0, 0, 500, 500);
-        f.setBackground(Color.red);
-        this.add(f);*/
-        repaint();
-      /*  System.out.println(rutas[0]);
-        carta=new Carta[1];
-        carta[0]=new Carta(rutas[0]);
-        this.add(carta[0]);
-        carta[0].addMouseListener(controlador);
-        */
-        
     }
 
 }

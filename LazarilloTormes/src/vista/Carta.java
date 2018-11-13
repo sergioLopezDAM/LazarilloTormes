@@ -16,9 +16,10 @@ import javax.swing.JLabel;
  @author Guille
  */
 public class Carta extends JLabel {
-
+    private ImageIcon carta;
     public Carta(String url) {
-        this.setIcon(cambiarTamano(new ImageIcon(url), 100, 100));
+        carta=cambiarTamano(new ImageIcon(url), 100, 100);
+        this.setIcon(carta);
     }
 
 
