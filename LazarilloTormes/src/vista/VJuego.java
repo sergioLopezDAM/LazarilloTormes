@@ -41,9 +41,6 @@ public class VJuego extends JPanel {
             carta.add(new Carta(rutas[i]));
         }
         
-        //carta.get(i).
-        //
-        
         JPanel cartas = new JPanel();
         int cuadrado=(int) Math.sqrt(carta.size());
         cartas.setLayout(new GridLayout(cuadrado, cuadrado));

@@ -81,14 +81,13 @@ public class Vista {
         ventana.repaint();
         splash = null;
 
-        vDialogoMod.cargar();
+       // vDialogoMod.cargar();
 
-        // ingresoDatos();
+        ingresoDatos();
         ventana.add(vJuego);
         ventana.repaint();
 
-        ventana.add(vDialogoMod);
-        ventana.add(vDialogoMod);
+        //ventana.add(vDialogoMod);
 
         ventana.setVisible(true);
     }
