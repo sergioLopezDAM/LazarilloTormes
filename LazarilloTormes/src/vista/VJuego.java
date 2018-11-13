@@ -42,16 +42,25 @@ public class VJuego extends JPanel {
         }
         
         //carta.get(i).
-        //Collections.shuffle(carta);
+        //
         
         JPanel cartas = new JPanel();
         int cuadrado=(int) Math.sqrt(carta.size());
         cartas.setLayout(new GridLayout(cuadrado, cuadrado));
+        for (int i = 0,j=0; i < carta.size();j++ ) {
+            System.out.println(i);
+            carta.get(i).setName(""+j);
+            i++;
+            carta.get(i).setName(""+(j));
+            i++;
+        }
+                Collections.shuffle(carta);
+
         for (int i = 0; i < carta.size(); i++) {
             cartas.add(carta.get(i));
             carta.get(i).addMouseListener(controlador);
-            
         }
+
         this.add(cartas);
         
         
