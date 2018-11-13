@@ -40,7 +40,7 @@ public class Vista {
 
     public Vista(Logica logica) {
         generarVista();
-        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 0);
+        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 10);
         //creamos todas las vistas mandandole la logica
         vCarga = new VCarga(logica);
         vDialogoMod = new VDialogoMod(logica);
@@ -51,6 +51,7 @@ public class Vista {
         //no ponemos splash ya que no necesita logica
 
         // vDialogoMod=new VDialogoMod(logica);
+        ventana.setVisible(true);
     }
 
 
@@ -59,7 +60,7 @@ public class Vista {
         ventana.setMaximumSize(new Dimension(1924, 1047));
         ventana.setSize(600, 600);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
+
     }
 
 
@@ -81,14 +82,12 @@ public class Vista {
         ventana.repaint();
         splash = null;
 
-       // vDialogoMod.cargar();
-
+        // vDialogoMod.cargar();
         ingresoDatos();
         ventana.add(vJuego);
         ventana.repaint();
 
         //ventana.add(vDialogoMod);
-
         ventana.setVisible(true);
     }
 
