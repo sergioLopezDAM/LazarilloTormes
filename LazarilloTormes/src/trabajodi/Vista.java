@@ -83,28 +83,36 @@ public class Vista {
 
         //vDialogoMod.cargar();
         
-       
-        String aux[]=new String[4];
-        /*for(int i=0;i<aux.length;i++){
-            aux[i]="src/img/carta.jpg";
-        }*/
-        aux[0]="src/img/carta.jpg";
-        aux[1]="src/img/2.jpg";
-        aux[2]="src/img/carga2.jpg";
-        aux[3]="src/img/flecha.png";
-        //aux[4]="src/img/flecha.png";
-        //aux[5]="src/img/flecha.png";
-        //aux[3]="src/img/flecha.png";
-        vJuego.generar(aux);
+        ingresoDatos();
 
         ventana.add(vJuego);
         ventana.repaint();
 
         /*
          vDialogoMod.cargar();
-        ventana.add(vDialogoMod);*/
+         ventana.add(vDialogoMod);
+         */
         //vDialogoMod.cargar();
         // ventana.add(vDialogoMod);
         ventana.setVisible(true);
+    }
+
+
+    public void ingresoDatos() {
+        String aux[] = new String[4];
+        /*
+         for(int i=0;i<aux.length;i++){
+         aux[i]="src/img/carta.jpg";
+         }
+         */
+        aux[0] = "src/img/carta.jpg";
+        aux[1] = "src/img/2.jpg";
+        aux[2] = "src/img/carga2.jpg";
+        aux[3] = "src/img/flecha.png";
+        //aux[4]="src/img/flecha.png";
+        //aux[5]="src/img/flecha.png";
+        //aux[3]="src/img/flecha.png";
+        vJuego.generar(aux);
+
     }
 }
