@@ -40,7 +40,7 @@ public class VJuego extends JPanel {
 
     public VJuego(Logica logica) {
         controlador = new ContrJuego(this, logica);
-        this.setLayout(new G);
+        //this.setLayout(new G);
     }
 
 
