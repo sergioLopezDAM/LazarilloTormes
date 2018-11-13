@@ -188,11 +188,13 @@ public class VistaSplash extends JPanel {
             }
             progreso.setValue(valorP); //asignamos el valor del del progressbar
             valorP += 1;//sumamos uno al progreso
+            
         } else {//si ya ha llegado a 100 paramos la ejecucion, y llamamos a la vista avisandola de esto
             //paramos los contadores
             timerImg.stop();
             timerBar.stop();
             removeAll();
+            
             vista.splashTermina();
         }
     }
