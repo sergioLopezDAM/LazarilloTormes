@@ -40,7 +40,7 @@ public class Vista {
 
     public Vista(Logica logica) {
         generarVista();
-        cargarSpash("/img/logotrini.png", "/img/carga.jpg", 0);
+        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 0);
         //creamos todas las vistas mandandole la logica
         vCarga = new VCarga(logica);
         vDialogoMod = new VDialogoMod(logica);
@@ -63,7 +63,7 @@ public class Vista {
     }
 
 
-    private void cargarSpash(String logo, String fondo, int tiempo) {
+    private void cargarSplash(String logo, String fondo, int tiempo) {
         splash = new VistaSplash(logo, fondo, tiempo, fuente, this);
         ventana.setMinimumSize(splash.getMinimumSize());//asignamos el tamaño minimo para la ventana
         ventana.add(splash);
@@ -71,7 +71,7 @@ public class Vista {
     }
 
 
-    public void splasTermina() {
+    public void splashTermina() {
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
@@ -81,19 +81,15 @@ public class Vista {
         ventana.repaint();
         splash = null;
 
-        //vDialogoMod.cargar();
-        
-        ingresoDatos();
+        vDialogoMod.cargar();
 
+        // ingresoDatos();
         ventana.add(vJuego);
         ventana.repaint();
 
-        /*
-         vDialogoMod.cargar();
-         ventana.add(vDialogoMod);
-         */
-        //vDialogoMod.cargar();
-        // ventana.add(vDialogoMod);
+        ventana.add(vDialogoMod);
+        ventana.add(vDialogoMod);
+
         ventana.setVisible(true);
     }
 
