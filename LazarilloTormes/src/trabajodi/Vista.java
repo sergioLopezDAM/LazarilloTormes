@@ -51,6 +51,7 @@ public class Vista {
         //no ponemos splash ya que no necesita logica
 
         // vDialogoMod=new VDialogoMod(logica);
+         ventana.setVisible(true);
     }
 
 
@@ -59,7 +60,7 @@ public class Vista {
         ventana.setMaximumSize(new Dimension(1924, 1047));
         ventana.setSize(600, 600);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
+   
     }
 
 

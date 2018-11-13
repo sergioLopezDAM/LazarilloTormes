@@ -159,7 +159,7 @@ public class VistaSplash extends JPanel {
     @Override
     public void paint(Graphics g) {
         //colocamos la imagen desde el 0,0 hasta el tamañod e la imagen
-        g.drawImage(imagenFondo, 0, 0, getWidth(), getHeight(), this);//tenemos que estarlo pintando ya que el para hacer el efecto de rotacion esta imagen se elimina al rotar la otra
+        g.drawImage(imagenFondo, 0, 0, getWidth(), getHeight(), null);//tenemos que estarlo pintando ya que el para hacer el efecto de rotacion esta imagen se elimina al rotar la otra
         //tambien dibujamos siempre ya que el tamaño (ancho y largo) puede cambiar
         int x = getWidth() / 2;//calculamos la mitad del acho
         int y = getHeight() / 4;//calculamos para lograr estar en el cuarto superior de la pantalla

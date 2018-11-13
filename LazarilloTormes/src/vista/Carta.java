@@ -6,6 +6,8 @@
 package vista;
 
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -16,15 +18,17 @@ import javax.swing.JLabel;
  @author Guille
  */
 public class Carta extends JLabel {
-    private ImageIcon carta;
+    private ImageIcon carta,aux;
     public Carta(String url) {
         carta=cambiarTamano(new ImageIcon(url), 100, 100);
         this.setIcon(carta);
+        aux=cambiarTamano(new ImageIcon("src/img/logotrini.png"),100,100);
+       // this.setOpaque(false);
     }
 
 
     public void Aparecer() {
-
+         //this.setb
     }
 
 
@@ -34,7 +38,15 @@ public class Carta extends JLabel {
         icono = new ImageIcon(reescalada);
         return icono;
     }
+    
+    public void paint(Graphics g){
+        g.drawImage(aux.getImage() , 1, 1, null);
+        super.paint(g);
+    }
+    
+   
     //ocultar
     //es igual
     //
+    
 }
