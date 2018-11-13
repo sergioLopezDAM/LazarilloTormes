@@ -56,8 +56,8 @@ public class Carta extends JLabel {
         super.paint(g);
     }
     public void animarSalir(){
-         altura=this.getHeight();
-        ancho=this.getWidth();
+        altura=aux.getIconHeight();
+        ancho=aux.getIconWidth();
         sale=true;
         empezar();
     } 
@@ -86,13 +86,13 @@ public class Carta extends JLabel {
     
     public void ponerImagen(){
         System.out.println(altura+" "+ancho);
-        if(altura>0 && ancho>0 && altura<100 && ancho<100){
+        if(altura>0 && ancho>0 && altura<ALTOMAX && ancho<ANCHOMAX){
             System.out.println("poniendo img");
             this.setIcon(cambiarTamano((ImageIcon) this.getIcon(),altura, ancho));
         }else{
-            if(sale)
+            if(sale){
                  setIcon(null);
-            else{
+            }else{
                 setIcon(carta);
                 
             }

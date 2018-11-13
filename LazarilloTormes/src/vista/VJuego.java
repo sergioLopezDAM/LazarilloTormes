@@ -45,8 +45,10 @@ public class VJuego extends JPanel {
         if(a){
             carta.get(3).animarSalir();
             a=false;
-         }else
-            carta.get(3).animarEntrar();
+         }else{
+            carta.get(3).animarEntrar();  
+            a=true;
+        }
     }
     
     private void generarCartas(String[] rutas){    
