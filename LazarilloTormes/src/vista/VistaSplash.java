@@ -57,6 +57,7 @@ public class VistaSplash extends JPanel {
         textos[0] = "Loading...";//"Cargando...";
         textos[1] = "Almost finished loading.";//"Casi hemos terminado";
         textos[2] = "Starting...";//"Iniciando...";  
+
         crearObjetos(rutaImg, rutaFondo, tiempo, font, vista);
     }
 
@@ -192,7 +193,7 @@ public class VistaSplash extends JPanel {
             timerImg.stop();
             timerBar.stop();
             removeAll();
-            vista.splasTermina();
+            vista.splashTermina();
         }
     }
 
