@@ -40,7 +40,7 @@ public class Vista {
 
     public Vista(Logica logica) {
         generarVista();
-        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 10);
+        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 0);
         //creamos todas las vistas mandandole la logica
         vCarga = new VCarga(logica);
         vDialogoMod = new VDialogoMod(logica);

@@ -34,14 +34,22 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
+       // this.setLayout(new );
         //generamos las cartas
         generarCartas(rutas);
         
-        
-        
     }
-    private void generarCartas(String[] rutas){
-        
+    //auxiliar, para probar
+    boolean a=true;
+    public void algo(){
+        if(a){
+            carta.get(3).animarSalir();
+            a=false;
+         }else
+            carta.get(3).animarEntrar();
+    }
+    
+    private void generarCartas(String[] rutas){    
         carta=new ArrayList();
         //asignamos la misma ruta a 2 carta
         for(int i=0;i<rutas.length;i++){
@@ -61,7 +69,7 @@ public class VJuego extends JPanel {
         JPanel cartas = new JPanel();
         int cuadrado=(int) Math.sqrt(carta.size());
         //asignamos un layout a las cartas
-        cartas.setLayout(new GridLayout(cuadrado, cuadrado));
+        cartas.setLayout(new GridLayout(cuadrado, cuadrado,8,8));
         
         //deshordenamos las cartas
         Collections.shuffle(carta);
