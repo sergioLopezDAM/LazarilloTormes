@@ -18,11 +18,15 @@ import javax.swing.JLabel;
 public class Carta extends JLabel {
 
     public Carta(String url) {
-        this.setIcon(cambiarTamano(new ImageIcon(url),100,100));
+        this.setIcon(cambiarTamano(new ImageIcon(url), 100, 100));
     }
-    public void Aparecer(){
-        
+
+
+    public void Aparecer() {
+
     }
+
+
     public ImageIcon cambiarTamano(ImageIcon icono, int anchoImagen, int altoImagen) {
         Image imagen = icono.getImage();
         Image reescalada = imagen.getScaledInstance(anchoImagen, altoImagen, java.awt.Image.SCALE_SMOOTH);
