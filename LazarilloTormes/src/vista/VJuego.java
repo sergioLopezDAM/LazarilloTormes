@@ -52,7 +52,6 @@ public class VJuego extends JPanel {
     
     public VJuego(Logica logica) {
         controlador = new ContrJuego(this, logica);
-        //this.setLayout(new G);
     }
 
 
@@ -73,28 +72,22 @@ public class VJuego extends JPanel {
         asignarLabels();
         //this.add(new Button("wsfjwenjgdbsjk"),BorderLayout.WEST);
         pausa();
+        guardar();
+        continuar();
         
       //  this.add(ba,BorderLayout.EAST);
 
         generarCartas(rutas);
     }
     private void asignarLabels(){
-        JPanel labels=new JPanel();
-        labels.setBackground(Color.red);
-        labels.setOpaque(true);
         contMov=0;
         lMovimientos=new JLabel("Movimientos: "+contMov);
         lMovimientos.setFont(fuente);
         constrain.gridx=0;
         constrain.gridy=0;
         constrain.fill= GridBagConstraints.BOTH;
-        /*constrain.gridx = 2; // El área de texto empieza en la columna cero.
-        constrain.gridy = 0; // El área de texto empieza en la fila cero
-        constrain.gridwidth = 2; // El área de texto ocupa dos columnas.
-        constrain.gridheight = 0; // El área de texto ocupa 2 filas.*/
         this.add(lMovimientos,constrain);
-//labels.add(lMovimientos);
-        
+
         contadorSeg=0;
         ImageIcon imgReloj=new ImageIcon("src/img/reloj.png");
         lReloj=new JLabel(""+contadorSeg,imgReloj, JLabel.CENTER);
@@ -102,8 +95,6 @@ public class VJuego extends JPanel {
         lReloj.setIconTextGap((int) (-imgReloj.getIconWidth()/1.6));
         lReloj.setFont(fuente);
         lReloj.setForeground(new Color(74, 110, 242   ));
-        // lReloj.setOpaque(true);
-       // labels.add(lReloj);
 
         constrain.gridx=2;
         constrain.gridy=0;
@@ -111,12 +102,6 @@ public class VJuego extends JPanel {
         constrain.fill= GridBagConstraints.NONE;
 
         
-       /* constrain.gridx = 0; // El área de texto empieza en la columna cero.
-        constrain.gridy = 0; // El área de texto empieza en la fila cero
-        constrain.gridwidth = 3; // El área de texto ocupa dos columnas.
-        constrain.gridheight = 1; // El área de texto ocupa 2 filas.
-       */
-      //  this.add(labels,constrain);
     }
     
    
@@ -139,10 +124,10 @@ public class VJuego extends JPanel {
         
         //creamos el panel donde estarán las cartas
         JPanel cartas = new JPanel();
-        cartas.setSize((100+10)*4,(100+8)*2);
-        int cuadrado=(int) Math.sqrt(carta.size());
+        //cartas.setSize((100+10)*4,(100+8)*2);
         //asignamos un layout a las cartas
-        cartas.setLayout(new GridLayout(cuadrado, cuadrado,10,10));
+        int cuadrado=(int) Math.sqrt(carta.size());
+        cartas.setLayout(new GridLayout(cuadrado, cuadrado,20,5));
         
         //deshordenamos las cartas
         Collections.shuffle(carta);
@@ -152,8 +137,8 @@ public class VJuego extends JPanel {
             cartas.add(carta.get(i));
             carta.get(i).addMouseListener(controlador);
         }
-        cartas.setVisible(true);
-        cartas.setBackground(Color.red);
+        //cartas.setVisible(true);
+        //cartas.setBackground(Color.red);
         constrain.gridx = 0; // El área de texto empieza en la columna cero.
         constrain.gridy = 1; // El área de texto empieza en la fila cero
         constrain.gridwidth = 2; // El área de texto ocupa dos columnas.
@@ -183,13 +168,13 @@ public class VJuego extends JPanel {
         bPausaPlay=new JButton(new ImageIcon("src/img/playPause.png"));
         bPausaPlay.setContentAreaFilled(false);
         bPausaPlay.setBorder(null);
+       // bPausaPlay.set
         constrain.gridx=0;
         constrain.gridy=2;
+       // constrain.anchor=GridBagConstraints.LINE_START;
         constrain.fill= GridBagConstraints.HORIZONTAL;
         constrain.weighty = 0.5;
         this.add(bPausaPlay,constrain);
-        guardar();
-        continuar();
     }    
     private void continuar(){
         bContinuar=new JButton(new ImageIcon("src/img/flechaRect.png"));
