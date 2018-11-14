@@ -8,7 +8,9 @@ package vista;
 
 import controladores.ContrJuego;
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
@@ -22,7 +24,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
+import javax.swing.border.Border;
 import trabajodi.Logica;
 
 
@@ -47,14 +52,15 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
-        
+        this.setLayout(new BorderLayout());
         //generamos las cartas
         asignarLabels();
-        this.add((Box.createHorizontalGlue()));
-        generarCartas(rutas);
-        this.add((Box.createHorizontalGlue()));
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        this.add(new Button("wsfjwenjgdbsjk"),BorderLayout.WEST);
+
         
+      //  this.add(ba,BorderLayout.EAST);
+
+        generarCartas(rutas);
     }
     private void asignarLabels(){
         JPanel labels=new JPanel();
@@ -68,7 +74,7 @@ public class VJuego extends JPanel {
         labels.add(lReloj);
         
         
-        this.add(labels);
+        this.add(labels,BorderLayout.NORTH);
     }
     
    
@@ -105,7 +111,7 @@ public class VJuego extends JPanel {
             carta.get(i).addMouseListener(controlador);
         }
 
-        this.add(cartas);
+        this.add(cartas,BorderLayout.CENTER);
     }
     
     
