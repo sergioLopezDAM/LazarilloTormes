@@ -171,13 +171,14 @@ public class VJuego extends JPanel {
         bPausaPlay=new JButton(new ImageIcon("src/img/playPause.png"));
         bPausaPlay.setContentAreaFilled(false);
         bPausaPlay.setBorder(null);
-       // bPausaPlay.set
         constrain.gridx=0;
         constrain.gridy=2;
-       // constrain.anchor=GridBagConstraints.LINE_START;
         constrain.fill= GridBagConstraints.HORIZONTAL;
         constrain.weighty = 0.5;
         this.add(bPausaPlay,constrain);
+        
+        bPausaPlay.addKeyListener(controlador);
+        bPausaPlay.addMouseListener(controlador);
     }    
     private void continuar(){
         bContinuar=new JButton(new ImageIcon("src/img/flechaRect.png"));
@@ -188,6 +189,9 @@ public class VJuego extends JPanel {
        constrain.fill= GridBagConstraints.HORIZONTAL;
         constrain.weighty = 0.5;
         this.add(bContinuar,constrain);
+        
+        bContinuar.addKeyListener(controlador);
+        bContinuar.addMouseListener(controlador);
     }     
     private void guardar(){
         bGuardar=new JButton(new ImageIcon("src/img/save.png"));
@@ -198,6 +202,9 @@ public class VJuego extends JPanel {
         constrain.fill= GridBagConstraints.HORIZONTAL;
         constrain.weighty = 0.5;
         this.add(bGuardar,constrain);
+        
+        bGuardar.addKeyListener(controlador);
+        bGuardar.addMouseListener(controlador);
     }   
     
     

@@ -92,7 +92,7 @@ public class Vista {
 
 
     public void ingresoDatos() {
-        ventana.setSize(1000, 1000);
+        ventana.setSize(1000, 800);
         String aux[] = new String[6];
         /*
          for(int i=0;i<aux.length;i++){
@@ -105,9 +105,7 @@ public class Vista {
         aux[3] = "src/img/flecha.png";
         aux[4]="src/img/flecha.png";
         aux[5]="src/img/flecha.png";
-//        aux[6]="src/img/flecha.png";
-//        aux[7]="src/img/flecha.png";
-//        //aux[8]="src/img/flecha.png";
+     //   aux[6]="src/img/flecha.png";
         vJuego.generar(aux);
 
     }
