@@ -11,9 +11,11 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
@@ -124,6 +126,7 @@ public class VJuego extends JPanel {
         
         //creamos el panel donde estarán las cartas
         JPanel cartas = new JPanel();
+        cartas.setOpaque(false);
         //cartas.setSize((100+10)*4,(100+8)*2);
         //asignamos un layout a las cartas
         int cuadrado=(int) Math.sqrt(carta.size());
@@ -230,5 +233,11 @@ public class VJuego extends JPanel {
             }
         });
     }*/
+    protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    Image img = new ImageIcon("src/img/fondo.gif").getImage();
+    g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+    
+}
 }
 

@@ -27,7 +27,7 @@ import javax.swing.border.Border;
 public class Carta extends JLabel {
     private ImageIcon aux,vuelta;
     private String url;
-    private final Border borde= BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1), BorderFactory.createLoweredBevelBorder());
+    private final Border borde= BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.blue, 2), BorderFactory.createLoweredBevelBorder());
 
     private final int ANCHOMAX=100,ALTOMAX=100;
     int altura,ancho;
@@ -42,11 +42,6 @@ public class Carta extends JLabel {
         // aux=cambiarTamano(new ImageIcon("src/img/logotrini.png"),100,100);
         aux=cambiarTamano(new ImageIcon(url), vuelta.getIconWidth(), vuelta.getIconHeight());
        // this.setOpaque(false);
-    }
-
-
-    public void Aparecer() {
-         //this.setb
     }
 
 
