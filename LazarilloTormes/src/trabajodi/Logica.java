@@ -5,16 +5,36 @@
  */
 package trabajodi;
 
+import controladores.ContrJuego;
+
 
 /**
 
  @author Guille
  */
 public class Logica {
-
+    private ContrJuego juego;
+    
     public Logica() {
     }
+    
+    /*
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     // CONTROLADOR VISTA JUEGO
+     */
+    public void juegoClick() {
+        
+    }
+    public void juegokey() {
 
+    }
 
     /*
      // CONTROLADOR VISTA CARGA
@@ -62,18 +82,5 @@ public class Logica {
     }
 
 
-    /*
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     // CONTROLADOR VISTA JUEGO
-     */
-    public void metodo3() {
-
-    }
+    
 }
