@@ -10,6 +10,7 @@ import controladores.ContrJuego;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -44,7 +45,7 @@ public class VJuego extends JPanel {
     private Timer tReloj;
     private JLabel lMovimientos,lReloj;
     private JButton bPausa,bGuardar,bContinuar;
-
+GridBagConstraints constrain     ;
     public VJuego(Logica logica) {
         controlador = new ContrJuego(this, logica);
         //this.setLayout(new G);
@@ -52,10 +53,13 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
-        this.setLayout(new BorderLayout());
+        constrain = new GridBagConstraints();
+        constrain.weighty = 1.0; //para que se estiren las columnas
+        constrain.weightx=1.0;
+        this.setLayout( new GridBagLayout());
         //generamos las cartas
         asignarLabels();
-        this.add(new Button("wsfjwenjgdbsjk"),BorderLayout.WEST);
+        //this.add(new Button("wsfjwenjgdbsjk"),BorderLayout.WEST);
 
         
       //  this.add(ba,BorderLayout.EAST);
@@ -64,7 +68,8 @@ public class VJuego extends JPanel {
     }
     private void asignarLabels(){
         JPanel labels=new JPanel();
-        labels.setOpaque(false);
+        labels.setBackground(Color.red);
+        labels.setOpaque(true);
         contMov=0;
         lMovimientos=new JLabel(""+contMov);
         labels.add(lMovimientos);
@@ -74,7 +79,12 @@ public class VJuego extends JPanel {
         labels.add(lReloj);
         
         
-        this.add(labels,BorderLayout.NORTH);
+        constrain.gridx = 0; // El área de texto empieza en la columna cero.
+        constrain.gridy = 0; // El área de texto empieza en la fila cero
+        constrain.gridwidth = 3; // El área de texto ocupa dos columnas.
+        constrain.gridheight = 1; // El área de texto ocupa 2 filas.
+       
+        this.add(labels,constrain);
     }
     
    
@@ -97,7 +107,7 @@ public class VJuego extends JPanel {
         
         //creamos el panel donde estarán las cartas
         JPanel cartas = new JPanel();
-        cartas.setSize((100+8)*4,(100+8)*2);
+        cartas.setSize((100+10)*4,(100+8)*2);
         int cuadrado=(int) Math.sqrt(carta.size());
         //asignamos un layout a las cartas
         cartas.setLayout(new GridLayout(cuadrado, cuadrado,8,8));
@@ -111,7 +121,11 @@ public class VJuego extends JPanel {
             carta.get(i).addMouseListener(controlador);
         }
 
-        this.add(cartas,BorderLayout.CENTER);
+        constrain.gridx = 1; // El área de texto empieza en la columna cero.
+        constrain.gridy = 1; // El área de texto empieza en la fila cero
+        constrain.gridwidth = 3; // El área de texto ocupa dos columnas.
+        constrain.gridheight = 1; // El área de texto ocupa 2 filas.
+        this.add(cartas,constrain);
     }
     
     

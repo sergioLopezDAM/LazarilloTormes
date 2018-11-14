@@ -89,7 +89,7 @@ public class Carta extends JLabel {
         System.out.println(altura+" "+ancho);
         if(altura>0 && ancho>0 && altura<ALTOMAX && ancho<ANCHOMAX){
             System.out.println("poniendo img");
-            this.setIcon(cambiarTamano((ImageIcon) this.getIcon(),altura, ancho));
+            this.setIcon(cambiarTamano((ImageIcon) carta,altura, ancho));
         }else{
             if(sale){
                  setIcon(null);
