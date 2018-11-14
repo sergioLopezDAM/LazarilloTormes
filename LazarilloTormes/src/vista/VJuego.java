@@ -54,8 +54,12 @@ GridBagConstraints constrain     ;
 
     public void generar(String[] rutas) {
         constrain = new GridBagConstraints();
-        constrain.weighty = 1.0; //para que se estiren las columnas
-        constrain.weightx=1.0;
+        constrain.weighty = 0.5; //para que se estiren las columnas
+        constrain.weightx=0.5;
+      //  constrain.fill = GridBagConstraints.BOTH;
+        constrain.anchor = GridBagConstraints.CENTER;
+        resize();
+
         this.setLayout( new GridBagLayout());
         //generamos las cartas
         asignarLabels();
@@ -120,11 +124,14 @@ GridBagConstraints constrain     ;
             cartas.add(carta.get(i));
             carta.get(i).addMouseListener(controlador);
         }
+        cartas.setVisible(true);
+        cartas.setBackground(Color.red);
 
         constrain.gridx = 1; // El área de texto empieza en la columna cero.
         constrain.gridy = 1; // El área de texto empieza en la fila cero
-        constrain.gridwidth = 3; // El área de texto ocupa dos columnas.
+        constrain.gridwidth = 2; // El área de texto ocupa dos columnas.
         constrain.gridheight = 1; // El área de texto ocupa 2 filas.
+        constrain.anchor=   GridBagConstraints.CENTER;
         this.add(cartas,constrain);
     }
     
@@ -142,7 +149,17 @@ GridBagConstraints constrain     ;
         tReloj.start();
     }
     
-    
+    private void resize(){
+        this.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                System.out.println(evt.getComponent());
+                for (Carta carta1 : carta) {
+                    System.out.println(getWidth()+"---"+getHeight());
+                    carta1.actualizarTamaño();
+                }
+            }
+        });
+    }
     
     
     

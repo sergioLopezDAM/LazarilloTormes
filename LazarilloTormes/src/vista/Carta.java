@@ -24,6 +24,7 @@ import javax.swing.border.Border;
  */
 public class Carta extends JLabel {
     private ImageIcon carta,aux;
+    private String url;
     private final Border borde= BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1), BorderFactory.createLoweredBevelBorder());
 
     private final int ANCHOMAX=100,ALTOMAX=100;
@@ -31,7 +32,9 @@ public class Carta extends JLabel {
     private boolean sale;
     private Timer timer;
     public Carta(String url) {
+        System.out.println(getWidth());
         this.setBorder(borde);//Border(borde);
+        this.url=url;
         carta=cambiarTamano(new ImageIcon(url), 100, 100);
         this.setIcon(carta);
         aux=cambiarTamano(new ImageIcon("src/img/logotrini.png"),100,100);
@@ -101,6 +104,13 @@ public class Carta extends JLabel {
         this.updateUI();
     }
     
+    public void actualizarTamaño(){
+       // if(!sale){
+            System.out.println("acctualiz"+this.getWidth()+"----"+this.getHeight());
+            carta=cambiarTamano(new ImageIcon(url), this.getWidth(), this.getHeight());
+            this.setIcon(carta);
+       // }
+    }
    
     
    
