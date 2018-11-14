@@ -58,7 +58,7 @@ GridBagConstraints constrain     ;
         constrain.weightx=0.5;
       //  constrain.fill = GridBagConstraints.BOTH;
         constrain.anchor = GridBagConstraints.CENTER;
-        resize();
+        //resize();
 
         this.setLayout( new GridBagLayout());
         //generamos las cartas
@@ -149,7 +149,7 @@ GridBagConstraints constrain     ;
         tReloj.start();
     }
     
-    private void resize(){
+ /*  private void resize(){
         this.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 System.out.println(evt.getComponent());
@@ -159,7 +159,7 @@ GridBagConstraints constrain     ;
                 }
             }
         });
-    }
+    }*/
     
     
     

@@ -7,6 +7,7 @@ package vista;
 
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -19,11 +20,12 @@ import javax.swing.border.Border;
 
 
 /**
-
+  System.out.println(vuelta.getIconHeight()+" uig "+vuelta.getIconWidth());vuelta.getIconHeight();
+  * 212 uig 134
  @author Guille
  */
 public class Carta extends JLabel {
-    private ImageIcon carta,aux;
+    private ImageIcon aux,vuelta;
     private String url;
     private final Border borde= BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1), BorderFactory.createLoweredBevelBorder());
 
@@ -32,12 +34,13 @@ public class Carta extends JLabel {
     private boolean sale;
     private Timer timer;
     public Carta(String url) {
-        System.out.println(getWidth());
         this.setBorder(borde);//Border(borde);
         this.url=url;
-        carta=cambiarTamano(new ImageIcon(url), 100, 100);
-        this.setIcon(carta);
-        aux=cambiarTamano(new ImageIcon("src/img/logotrini.png"),100,100);
+        vuelta=new ImageIcon("src/img/cartas/vuelta.png");//cambiarTamano(new ImageIcon("src/img/cartas/vuelta.png"),100,300);
+        //carta=cambiarTamano(new ImageIcon("src/img/cartas/vuelta.png"),100,100);
+        this.setIcon(vuelta);
+        // aux=cambiarTamano(new ImageIcon("src/img/logotrini.png"),100,100);
+        aux=cambiarTamano(new ImageIcon(url), vuelta.getIconWidth(), vuelta.getIconHeight());
        // this.setOpaque(false);
     }
 
@@ -47,26 +50,25 @@ public class Carta extends JLabel {
     }
 
 
-    public ImageIcon cambiarTamano(ImageIcon icono, int anchoImagen, int altoImagen) {
-        Image imagen = icono.getImage();
-        Image reescalada = imagen.getScaledInstance(anchoImagen, altoImagen, java.awt.Image.SCALE_SMOOTH);
-        icono = new ImageIcon(reescalada);
-        return icono;
-    }
+    
     
     public void paint(Graphics g){
+        //imagen de fondo, la carta
         g.drawImage(aux.getImage() , 1, 1, null);
         super.paint(g);
     }
     
     public void animarSalir(){
-        altura=aux.getIconHeight();
-        ancho=aux.getIconWidth();
+        System.out.println("icono="+vuelta.getIconHeight()+" "+vuelta.getIconWidth());
+        System.out.println("contenedor="+this.getHeight()+" "+this.getWidth());
+       // this.setMaximumSize(new Dimension(this.getWidth(), getHeight()));
+        altura=vuelta.getIconHeight();
+        ancho=vuelta.getIconWidth();
         sale=true;
         empezar();
     } 
     public void animarEntrar(){
-        this.setIcon(cambiarTamano((ImageIcon) carta,2,2));
+        this.setIcon(cambiarTamano((ImageIcon) vuelta,2,2));
         sale=false;
         empezar();
     }
@@ -90,14 +92,14 @@ public class Carta extends JLabel {
     
     public void ponerImagen(){
         System.out.println(altura+" "+ancho);
-        if(altura>0 && ancho>0 && altura<ALTOMAX && ancho<ANCHOMAX){
+        if(altura>0 && ancho>0 && altura<vuelta.getIconHeight() && ancho<vuelta.getIconWidth()){
             System.out.println("poniendo img");
-            this.setIcon(cambiarTamano((ImageIcon) carta,altura, ancho));
+            this.setIcon(cambiarTamano(new ImageIcon("src/img/cartas/vuelta.png"),ancho,altura ));
         }else{
             if(sale){
                  setIcon(null);
             }else{
-                setIcon(carta);
+                setIcon(vuelta);
             }
             timer.stop();
         }
@@ -107,8 +109,8 @@ public class Carta extends JLabel {
     public void actualizarTamaño(){
        // if(!sale){
             System.out.println("acctualiz"+this.getWidth()+"----"+this.getHeight());
-            carta=cambiarTamano(new ImageIcon(url), this.getWidth(), this.getHeight());
-            this.setIcon(carta);
+//            carta=cambiarTamano(new ImageIcon(url), this.getWidth(), this.getHeight());
+//            this.setIcon(carta);
        // }
     }
    
@@ -117,5 +119,10 @@ public class Carta extends JLabel {
     //ocultar
     //es igual
     //
-    
+    public ImageIcon cambiarTamano(ImageIcon icono, int anchoImagen, int altoImagen) {
+        Image imagen = icono.getImage();
+        Image reescalada = imagen.getScaledInstance(anchoImagen, altoImagen, java.awt.Image.SCALE_SMOOTH);
+        icono = new ImageIcon(reescalada);
+        return icono;
+    }
 }
