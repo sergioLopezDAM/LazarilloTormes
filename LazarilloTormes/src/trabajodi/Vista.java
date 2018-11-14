@@ -92,7 +92,7 @@ public class Vista {
 
 
     public void ingresoDatos() {
-        ventana.setSize(800, 600);
+        ventana.setSize(1000, 800);
         String aux[] = new String[4];
         /*
          for(int i=0;i<aux.length;i++){

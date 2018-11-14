@@ -14,6 +14,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,7 +47,7 @@ public class VJuego extends JPanel {
     private int contadorSeg,contMov;
     private Timer tReloj;
     private JLabel lMovimientos,lReloj;
-    private JButton bPausa,bGuardar,bContinuar;
+    private JButton bPausaPlay,bGuardar,bContinuar;
     GridBagConstraints constrain;
     
     public VJuego(Logica logica) {
@@ -56,10 +57,13 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
-        this.setOpaque(false);
+        this.setOpaque(true);
+        this.setFocusable(true);
+        this.requestFocus();
+        this.addKeyListener(controlador);
         constrain = new GridBagConstraints();
         constrain.weighty = 0.5; //para que se estiren las columnas
-        //constrain.weightx=0.5;
+       // constrain.weightx=1;
       //  constrain.fill = GridBagConstraints.BOTH;
         constrain.anchor = GridBagConstraints.CENTER;
         //resize();
@@ -68,7 +72,7 @@ public class VJuego extends JPanel {
         //generamos las cartas
         asignarLabels();
         //this.add(new Button("wsfjwenjgdbsjk"),BorderLayout.WEST);
-
+        pausa();
         
       //  this.add(ba,BorderLayout.EAST);
 
@@ -127,9 +131,9 @@ public class VJuego extends JPanel {
         
         //para cada carta asignamos el mismo id
         for (int i=0,j=0 ; i < carta.size();j++ ) {
-            carta.get(i).setName(""+j);
+            carta.get(i).setName(""+j+""+i);
             i++;
-            carta.get(i).setName(""+(j));
+            carta.get(i).setName(""+j+""+i);
             i++;
         }
         
@@ -138,7 +142,7 @@ public class VJuego extends JPanel {
         cartas.setSize((100+10)*4,(100+8)*2);
         int cuadrado=(int) Math.sqrt(carta.size());
         //asignamos un layout a las cartas
-        cartas.setLayout(new GridLayout(cuadrado, cuadrado,8,8));
+        cartas.setLayout(new GridLayout(cuadrado, cuadrado,10,10));
         
         //deshordenamos las cartas
         Collections.shuffle(carta);
@@ -150,13 +154,14 @@ public class VJuego extends JPanel {
         }
         cartas.setVisible(true);
         cartas.setBackground(Color.red);
-
         constrain.gridx = 0; // El área de texto empieza en la columna cero.
         constrain.gridy = 1; // El área de texto empieza en la fila cero
         constrain.gridwidth = 2; // El área de texto ocupa dos columnas.
         constrain.gridheight = 1; // El área de texto ocupa 2 filas.
-        //constrain.anchor=   GridBagConstraints.CENTER;
-        this.add(cartas,constrain);
+        //constrain.fill= GridBagConstraints.HORIZONTAL;
+       // constrain.anchor=   GridBagConstraints.LINE_END;
+        constrain.weighty = 0.0;
+        this.add(cartas,constrain); 
     }
     
     
@@ -174,17 +179,38 @@ public class VJuego extends JPanel {
         tReloj.start();
     }
     
- /*  private void resize(){
-        this.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                System.out.println(evt.getComponent());
-                for (Carta carta1 : carta) {
-                    System.out.println(getWidth()+"---"+getHeight());
-                    carta1.actualizarTamaño();
-                }
-            }
-        });
-    }*/
+    private void pausa(){
+        bPausaPlay=new JButton(new ImageIcon("src/img/playPause.png"));
+        bPausaPlay.setContentAreaFilled(false);
+        bPausaPlay.setBorder(null);
+        constrain.gridx=0;
+        constrain.gridy=2;
+        constrain.fill= GridBagConstraints.HORIZONTAL;
+        constrain.weighty = 0.5;
+        this.add(bPausaPlay,constrain);
+        guardar();
+        continuar();
+    }    
+    private void continuar(){
+        bContinuar=new JButton(new ImageIcon("src/img/flechaRect.png"));
+        bContinuar.setContentAreaFilled(false);
+        bContinuar.setBorder(null);
+        constrain.gridx=2;
+        constrain.gridy=2;
+       constrain.fill= GridBagConstraints.HORIZONTAL;
+        constrain.weighty = 0.5;
+        this.add(bContinuar,constrain);
+    }     
+    private void guardar(){
+        bGuardar=new JButton(new ImageIcon("src/img/save.png"));
+        bGuardar.setContentAreaFilled(false);
+        bGuardar.setBorder(null);
+        constrain.gridx=1;
+        constrain.gridy=2;
+        constrain.fill= GridBagConstraints.HORIZONTAL;
+        constrain.weighty = 0.5;
+        this.add(bGuardar,constrain);
+    }   
     
     
     
@@ -207,5 +233,17 @@ public class VJuego extends JPanel {
         }
     }
 
+    
+ /*  private void resize(){
+        this.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                System.out.println(evt.getComponent());
+                for (Carta carta1 : carta) {
+                    System.out.println(getWidth()+"---"+getHeight());
+                    carta1.actualizarTamaño();
+                }
+            }
+        });
+    }*/
 }
 
