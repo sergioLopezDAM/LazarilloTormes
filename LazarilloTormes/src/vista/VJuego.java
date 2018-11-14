@@ -10,6 +10,7 @@ import controladores.ContrJuego;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -37,6 +38,7 @@ import trabajodi.Logica;
  @author Guille
  */
 public class VJuego extends JPanel {
+    private Font fuente = new Font("Agency FB", Font.BOLD, 40);
 
     private ContrJuego controlador;
     //private Carta[] carta;
@@ -45,7 +47,8 @@ public class VJuego extends JPanel {
     private Timer tReloj;
     private JLabel lMovimientos,lReloj;
     private JButton bPausa,bGuardar,bContinuar;
-GridBagConstraints constrain     ;
+    GridBagConstraints constrain;
+    
     public VJuego(Logica logica) {
         controlador = new ContrJuego(this, logica);
         //this.setLayout(new G);
@@ -53,9 +56,10 @@ GridBagConstraints constrain     ;
 
 
     public void generar(String[] rutas) {
+        this.setOpaque(false);
         constrain = new GridBagConstraints();
         constrain.weighty = 0.5; //para que se estiren las columnas
-        constrain.weightx=0.5;
+        //constrain.weightx=0.5;
       //  constrain.fill = GridBagConstraints.BOTH;
         constrain.anchor = GridBagConstraints.CENTER;
         //resize();
@@ -75,20 +79,40 @@ GridBagConstraints constrain     ;
         labels.setBackground(Color.red);
         labels.setOpaque(true);
         contMov=0;
-        lMovimientos=new JLabel(""+contMov);
-        labels.add(lMovimientos);
+        lMovimientos=new JLabel("Movimientos: "+contMov);
+        lMovimientos.setFont(fuente);
+        constrain.gridx=0;
+        constrain.gridy=0;
+        constrain.fill= GridBagConstraints.BOTH;
+        /*constrain.gridx = 2; // El área de texto empieza en la columna cero.
+        constrain.gridy = 0; // El área de texto empieza en la fila cero
+        constrain.gridwidth = 2; // El área de texto ocupa dos columnas.
+        constrain.gridheight = 0; // El área de texto ocupa 2 filas.*/
+        this.add(lMovimientos,constrain);
+//labels.add(lMovimientos);
         
         contadorSeg=0;
-        lReloj=new JLabel(""+contadorSeg);
-        labels.add(lReloj);
+        ImageIcon imgReloj=new ImageIcon("src/img/reloj.png");
+        lReloj=new JLabel(""+contadorSeg,imgReloj, JLabel.CENTER);
+        System.out.println(imgReloj.getIconWidth());
+        lReloj.setIconTextGap((int) (-imgReloj.getIconWidth()/1.6));
+        lReloj.setFont(fuente);
+        lReloj.setForeground(new Color(74, 110, 242   ));
+        // lReloj.setOpaque(true);
+       // labels.add(lReloj);
+
+        constrain.gridx=2;
+        constrain.gridy=0;
+        this.add(lReloj,constrain);
+        constrain.fill= GridBagConstraints.NONE;
+
         
-        
-        constrain.gridx = 0; // El área de texto empieza en la columna cero.
+       /* constrain.gridx = 0; // El área de texto empieza en la columna cero.
         constrain.gridy = 0; // El área de texto empieza en la fila cero
         constrain.gridwidth = 3; // El área de texto ocupa dos columnas.
         constrain.gridheight = 1; // El área de texto ocupa 2 filas.
-       
-        this.add(labels,constrain);
+       */
+      //  this.add(labels,constrain);
     }
     
    
@@ -127,11 +151,11 @@ GridBagConstraints constrain     ;
         cartas.setVisible(true);
         cartas.setBackground(Color.red);
 
-        constrain.gridx = 1; // El área de texto empieza en la columna cero.
+        constrain.gridx = 0; // El área de texto empieza en la columna cero.
         constrain.gridy = 1; // El área de texto empieza en la fila cero
         constrain.gridwidth = 2; // El área de texto ocupa dos columnas.
         constrain.gridheight = 1; // El área de texto ocupa 2 filas.
-        constrain.anchor=   GridBagConstraints.CENTER;
+        //constrain.anchor=   GridBagConstraints.CENTER;
         this.add(cartas,constrain);
     }
     
@@ -141,7 +165,8 @@ GridBagConstraints constrain     ;
             @Override
             public void actionPerformed(ActionEvent e) {
                 contadorSeg++;
-                lReloj.setText(contadorSeg+"");
+                lReloj.setText(""+contadorSeg);
+                //poner si pasa de una cifra se coloque bien, 10 100 1000....
                 repaint();
             }
         });
@@ -183,3 +208,4 @@ GridBagConstraints constrain     ;
     }
 
 }
+
