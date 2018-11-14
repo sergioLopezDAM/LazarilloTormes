@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.Action;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -45,10 +47,13 @@ public class VJuego extends JPanel {
 
 
     public void generar(String[] rutas) {
-       // this.setLayout(new );
+        
         //generamos las cartas
         asignarLabels();
+        this.add((Box.createHorizontalGlue()));
         generarCartas(rutas);
+        this.add((Box.createHorizontalGlue()));
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         
     }
     private void asignarLabels(){
@@ -63,7 +68,7 @@ public class VJuego extends JPanel {
         labels.add(lReloj);
         
         
-        this.add(labels,BorderLayout.NORTH);
+        this.add(labels);
     }
     
    
@@ -86,6 +91,7 @@ public class VJuego extends JPanel {
         
         //creamos el panel donde estarán las cartas
         JPanel cartas = new JPanel();
+        cartas.setSize((100+8)*4,(100+8)*2);
         int cuadrado=(int) Math.sqrt(carta.size());
         //asignamos un layout a las cartas
         cartas.setLayout(new GridLayout(cuadrado, cuadrado,8,8));
@@ -99,7 +105,7 @@ public class VJuego extends JPanel {
             carta.get(i).addMouseListener(controlador);
         }
 
-        this.add(cartas,BorderLayout.CENTER);
+        this.add(cartas);
     }
     
     
