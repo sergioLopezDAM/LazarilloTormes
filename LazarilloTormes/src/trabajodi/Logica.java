@@ -34,7 +34,7 @@ public class Logica {
      */
     public void juegoClick(Component componente) {
         if(componente instanceof JButton){
-            switch
+           // switch
             System.out.println( ((JButton) componente).getActionCommand());
             
             
