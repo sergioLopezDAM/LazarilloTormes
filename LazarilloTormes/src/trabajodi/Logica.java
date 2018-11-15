@@ -6,6 +6,9 @@
 package trabajodi;
 
 import controladores.ContrJuego;
+import java.awt.Component;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 
 /**
@@ -29,8 +32,16 @@ public class Logica {
      // CONTROLADOR VISTA JUEGO
      // CONTROLADOR VISTA JUEGO
      */
-    public void juegoClick() {
-        
+    public void juegoClick(Component componente) {
+        if(componente instanceof JButton){
+            switch
+            System.out.println( ((JButton) componente).getActionCommand());
+            
+            
+            
+        }else if(componente instanceof JLabel){
+            System.out.println("label");
+        }
     }
     public void juegokey() {
 

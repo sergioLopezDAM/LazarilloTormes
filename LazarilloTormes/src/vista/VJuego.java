@@ -197,6 +197,7 @@ public class VJuego extends JPanel {
         bGuardar=new JButton(new ImageIcon("src/img/save.png"));
         bGuardar.setContentAreaFilled(false);
         bGuardar.setBorder(null);
+        bGuardar.setActionCommand("guardar");
         constrain.gridx=1;
         constrain.gridy=2;
         constrain.fill= GridBagConstraints.HORIZONTAL;
@@ -241,10 +242,9 @@ public class VJuego extends JPanel {
         });
     }*/
     protected void paintComponent(Graphics g) {
-    super.paintComponent(g);
-    Image img = new ImageIcon("src/img/fondo.gif").getImage();
-    g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-    
-}
+        super.paintComponent(g);
+        Image img = new ImageIcon("src/img/fondo.gif").getImage();
+        g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+    }
 }
 

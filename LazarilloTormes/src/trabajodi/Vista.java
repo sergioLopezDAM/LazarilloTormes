@@ -51,7 +51,7 @@ public class Vista {
 
         // vDialogoMod=new VDialogoMod(logica);
         ventana.setVisible(true);
-ingresoDatos() ;
+        ingresoDatos() ;
     }
 
 
