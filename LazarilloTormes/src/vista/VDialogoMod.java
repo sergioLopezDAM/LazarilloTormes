@@ -124,5 +124,4 @@ public class VDialogoMod extends JPanel {
 
         return new ImageIcon(mimg.getScaledInstance(mimg.getWidth(), mimg.getHeight(), SCALE_SMOOTH));
     }
-
 }
