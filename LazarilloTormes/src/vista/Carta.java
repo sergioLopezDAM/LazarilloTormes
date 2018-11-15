@@ -55,6 +55,9 @@ public class Carta extends JLabel {
     }
 
 
+    /**
+
+     */
     public void animarSalir() {
         System.out.println("icono=" + vuelta.getIconHeight() + " " + vuelta.getIconWidth());
         System.out.println("contenedor=" + this.getHeight() + " " + this.getWidth());
@@ -95,6 +98,9 @@ public class Carta extends JLabel {
     }
 
 
+    /**
+     Le asigna la imagen a las cartas
+     */
     public void ponerImagen() {
         System.out.println(altura + " " + ancho);
         if (altura > 0 && ancho > 0 && altura < vuelta.getIconHeight() && ancho < vuelta.getIconWidth()) {
@@ -123,7 +129,14 @@ public class Carta extends JLabel {
 
     //ocultar
     //es igual
-    //
+    /**
+     Modifica el tamaño de las imagenes
+
+     @param icono       se pasa por parametro el icono a reescalar
+     @param anchoImagen establece el ancho de la imagen
+     @param altoImagen  establece el alto de la imagen
+     @return devuelve un ImageIcon que se asigna ya reescalado al original
+     */
     public ImageIcon cambiarTamano(ImageIcon icono, int anchoImagen, int altoImagen) {
         Image imagen = icono.getImage();
         Image reescalada = imagen.getScaledInstance(anchoImagen, altoImagen, java.awt.Image.SCALE_SMOOTH);
