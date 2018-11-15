@@ -106,7 +106,7 @@ ingresoDatos() ;
 
 
     public void ingresoDatos() {
-                        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 5);
+        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 0);
         ventana.setVisible(true);
         ventana.setSize(1000, 800);
         String aux[] = new String[6];
