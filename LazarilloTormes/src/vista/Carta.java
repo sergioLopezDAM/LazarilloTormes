@@ -68,6 +68,8 @@ public class Carta extends JLabel {
         empezar();
     }
     public void empezar(){
+        if(timer!=null)
+            timer.stop();
         timer=new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

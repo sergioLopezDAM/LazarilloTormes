@@ -40,7 +40,6 @@ public class Vista {
 
     public Vista(Logica logica) {
         generarVista();
-        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 0);
         //creamos todas las vistas mandandole la logica
         vCarga = new VCarga(logica);
         vDialogoMod = new VDialogoMod(logica);
@@ -52,26 +51,41 @@ public class Vista {
 
         // vDialogoMod=new VDialogoMod(logica);
         ventana.setVisible(true);
+ingresoDatos() ;
     }
 
 
-    public void generarVista() {
+    public  void  generarVista()  {
         ventana = new JFrame("Memorion");
         ventana.setMaximumSize(new Dimension(1924, 1047));
         ventana.setSize(600, 600);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     }
 
 
-    private void cargarSplash(String logo, String fondo, int tiempo) {
+    private synchronized void cargarSplash(String logo, String fondo, int tiempo) {
         splash = new VistaSplash(logo, fondo, tiempo, fuente, this);
         ventana.setMinimumSize(splash.getMinimumSize());//asignamos el tamaño minimo para la ventana
         ventana.add(splash);
+        ventana.setVisible(true);
         splash.empezarAnimaciones();
+        try {
+            wait();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       // splash.empezarAnimaciones();
+        /*try {
+            wait();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
 
 
-    public void splashTermina() {
+    public synchronized void splashTermina() {
+        notifyAll();
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
@@ -82,8 +96,8 @@ public class Vista {
         splash = null;
 
         // vDialogoMod.cargar();
-        ingresoDatos();
-        ventana.add(vJuego);
+       // ingresoDatos();
+        
         ventana.repaint();
 
         //ventana.add(vDialogoMod);
@@ -92,6 +106,8 @@ public class Vista {
 
 
     public void ingresoDatos() {
+                        cargarSplash("/img/logotrini.png", "/img/carga.jpg", 5);
+        ventana.setVisible(true);
         ventana.setSize(1000, 800);
         String aux[] = new String[6];
         /*
@@ -107,6 +123,8 @@ public class Vista {
         aux[5]="src/img/flecha.png";
      //   aux[6]="src/img/flecha.png";
         vJuego.generar(aux);
+        ventana.add(vJuego);
+                ventana.setVisible(true);
 
     }
 }
