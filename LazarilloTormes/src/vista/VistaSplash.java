@@ -30,7 +30,7 @@ import trabajodi.Vista;
 
  @author Guille
  */
-public class VistaSplash extends JPanel implements Runnable{
+public class VistaSplash extends JPanel implements Runnable {
 
     private Vista vista;
     private final int TAM_WH_IMG = 200, TAM_HE_IMG = 200, MAX_WIDTH = 285, MAX_HEIGHT = 462;
@@ -60,7 +60,7 @@ public class VistaSplash extends JPanel implements Runnable{
         textos[2] = "Starting...";//"Iniciando...";  
 
         crearObjetos(rutaImg, rutaFondo, tiempo, font, vista);
-        hilo=new Thread();
+        hilo = new Thread();
     }
 
 
@@ -196,7 +196,7 @@ public class VistaSplash extends JPanel implements Runnable{
             timerImg.stop();
             timerBar.stop();
             removeAll();
-          //  notifyAll();
+            //  notifyAll();
             vista.splashTermina();
         }
     }
@@ -237,6 +237,7 @@ public class VistaSplash extends JPanel implements Runnable{
     public Dimension getMinimumSize() {
         return new Dimension(MAX_WIDTH, MAX_HEIGHT);
     }
+
 
     @Override
     public void run() {
